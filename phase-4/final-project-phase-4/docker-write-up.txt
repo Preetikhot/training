@@ -1,0 +1,16 @@
+preeti khot
+
+Dockerizing angular application:
+
+1. first we have to build the project with command
+>ng build --prod 
+
+2. the dist file is created. and we have to create Dockerfile and write 
+following code:
+FROM nginx:1.17.1-alpine
+COPY /dist/quiz-app /usr/share/nginx/html 
+
+3. open the cmd and exicute
+>docker build -t quizapp .
+>docker images
+>docker run -d -p 80:80 quizapp
